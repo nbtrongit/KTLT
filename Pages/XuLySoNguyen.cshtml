@@ -1,0 +1,31 @@
+﻿@page
+@model KTLT.Pages.XuLySoNguyenModel
+@using KTLT.Entities
+@using KTLT.Services
+@{
+    int a;
+    int b;
+    a = 10;
+    b = 20;
+    string kq = string.Empty;
+    //Request.Method == "POST"
+    if (Request.HasFormContentType)
+    {
+        a = int.Parse(Request.Form["BienA"]);
+        b = int.Parse(Request.Form["BienB"]);
+    }
+    int s = XuLySoNguyen.Tong(a, b);
+    kq = "Kết quả: " + s;
+    string currentTime = $"Current time í {DateTime.Now}";
+}
+
+<form method="POST">
+    <label for="a">Nhập biến A</label><br>
+    <input type="text" id="a" name="BienA" value=@a><br>
+    <label for="b">Nhập biến B</label><br>
+    <input type="text" id="b" name="BienB" value=@b><br><br>
+    <input type="submit" value="Tính">
+</form>
+
+<p>@kq</p>
+<p>@currentTime</p>

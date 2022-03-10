@@ -1,0 +1,40 @@
+﻿@page
+@model KTLT.Pages.MH_TinhKhoangCachDiemModel
+@using KTLT.Entities
+@using KTLT.Services
+@{
+    DIEM a;
+    DIEM b;
+    a.X = 1;
+    a.Y = 2;
+    b.X = 3;
+    b.Y = 4;
+    string kq = string.Empty;
+    //Request.Method == "POST"
+    if (Request.HasFormContentType)
+    {
+        a.X = int.Parse(Request.Form["X1"]);
+        a.Y = int.Parse(Request.Form["Y1"]);
+        b.X = int.Parse(Request.Form["X2"]);
+        b.Y = int.Parse(Request.Form["Y2"]);
+    }
+    bool s = XuLyDiem.LuuDiem(a);
+    kq = $"Kết quả: {s}";
+    string currentTime = $"Current time is {DateTime.Now}";
+}
+
+<form method="POST">
+    <label for="a">Nhập tử 1</label><br>
+    <input type="text" name="X1" value=@a.X><br>
+    <label for="a">Nhập mẫu 1</label><br>
+    <input type="text" name="Y1" value=@a.Y><br>
+    <label for="b">Nhập tử 2</label><br>
+    <input type="text" name="X2" value=@b.X><br>
+    <label for="b">Nhập mẫu 2</label><br>
+    <input type="text" name="Y2" value=@b.Y><br>
+    <input type="submit" value="Tính">
+</form>
+
+<p>@kq</p>
+<p>@currentTime</p>
+}

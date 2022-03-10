@@ -1,0 +1,39 @@
+﻿@page
+@model KTLT.Pages.MH_Cong_2_PhanSoModel
+@using KTLT.Services
+@using KTLT.Entities
+@{
+    PHANSO a;
+    PHANSO b;
+    a.TuSo = 1;
+    a.MauSo = 2;
+    b.TuSo = 3;
+    b.MauSo = 4;
+    string kq = string.Empty;
+    //Request.Method == "POST"
+    if (Request.HasFormContentType)
+    {
+        a.TuSo = int.Parse(Request.Form["tu1"]);
+        a.MauSo = int.Parse(Request.Form["mau1"]);
+        b.TuSo = int.Parse(Request.Form["tu2"]);
+        b.MauSo = int.Parse(Request.Form["mau2"]);
+    }
+    bool s = XuLyPhanSo.LuuPhanSo(a);
+    kq = $"Kết quả: {s}";
+    string currentTime = $"Current time is {DateTime.Now}";
+}
+
+<form method="POST">
+    <label for="a">Nhập tử 1</label><br>
+    <input type="text" name="tu1" value=@a.TuSo><br>
+    <label for="a">Nhập mẫu 1</label><br>
+    <input type="text" name="mau1" value=@a.MauSo><br>
+    <label for="b">Nhập tử 2</label><br>
+    <input type="text" name="tu2" value=@b.TuSo><br>
+    <label for="b">Nhập mẫu 2</label><br>
+    <input type="text" name="mau2" value=@b.MauSo><br>
+    <input type="submit" value="Tính">
+</form>
+
+<p>@kq</p>
+<p>@currentTime</p>
