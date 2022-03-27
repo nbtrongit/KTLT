@@ -12,7 +12,7 @@ namespace KTLT.DAL
         public static DAGIAC Doc()
 		{
 			DAGIAC d;
-			StreamReader file = StreamReader("C://Users//Trong//OneDrive//Desktop//KTLT//dagiac.txt");
+			StreamReader file = new StreamReader("C://Users//Trong//OneDrive//Desktop//KTLT//dagiac.txt");
 			string s = file.ReadLine();
 			d.DanhSachDinh = new DIEM[int.Parse(s)];
 			for(int i = 0; i < d.DanhSachDinh.Length; i++)

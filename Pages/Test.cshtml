@@ -1,0 +1,10 @@
+﻿@page
+@model KTLT.Pages.TestModel
+<div>@Model.Chuoi</div>
+<div>@Model.A</div>
+
+<form method="post">
+    <label> Nhập X</label>
+    <input type="text" name="x" value="@Model.A" />
+    <input type="submit" value="Tính" />
+</form>

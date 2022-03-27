@@ -27,8 +27,8 @@ namespace KTLT.Services
 		}
 		public static bool LuuTamGiac(TAMGIAC t)
 		{
-			if(KiemTraTamGiac(t)
-			{
+			if(KiemTraTamGiac(t))
+            {
 				LuuTruTamGiac.Luu(t);
 				return true;
 			}
