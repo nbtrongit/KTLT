@@ -1,0 +1,34 @@
+﻿@page
+@model KTLT.Pages.MH_Tinh_ChuViDaGiacModel
+@using KTLT.Entities
+@using KTLT.Services
+@{
+    string currentTime = $"Current time is {DateTime.Now}";
+}
+<form method="POST">
+    <label for="a">Nhập chuoi Da Giac</label><br>
+    <input type="text" name="ChuoiDaGiac" value=@Model.ChuoiDaGiac ><br>
+    <input type="submit" value="Tính">
+</form>
+@*
+@foreach(DIEM diem in Model.d.DanhSachDinh)
+{
+    <div>@diem.X, @diem.Y</div>
+}
+*@
+
+<table>
+    <tr>
+        <th>X</th>
+        <th>Y</th>
+    </tr>
+    @foreach (DIEM diem in Model.d.DanhSachDinh)
+    {
+        <tr>
+            <td>@diem.X</td>
+            <td>@diem.Y</td>
+        </tr>
+    }
+</table>
+
+@Model.kq

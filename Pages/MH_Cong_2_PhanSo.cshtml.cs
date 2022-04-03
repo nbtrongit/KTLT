@@ -11,6 +11,8 @@ namespace KTLT.Pages
 {
     public class MH_Cong_2_PhanSoModel : PageModel
     {
+        public PHANSO a;
+        public PHANSO b;
         public string kq { get; set; }
         [BindProperty]
         public int Tu1 { get; set; }
@@ -30,7 +32,7 @@ namespace KTLT.Pages
         }
         public void OnPost()
         {
-            PHANSO a, b;
+            //PHANSO a, b;
             a.TuSo = Tu1;
             a.MauSo = Mau1;
             b.TuSo = Tu2;

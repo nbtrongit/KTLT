@@ -24,5 +24,14 @@ namespace KTLT.Services
 			kq = LuuTruDiem.Doc();
 			return kq;
 		}
+        public static DIEM KhoiTao(string chuoiDiem)
+        {
+            DIEM a;
+            chuoiDiem = chuoiDiem.Substring(1, chuoiDiem.Length - 2);
+            string[] mDiem = chuoiDiem.Split(",");
+            a.X = int.Parse(mDiem[0]);
+            a.Y = int.Parse(mDiem[1]);
+            return a;
+        }
     }
 }

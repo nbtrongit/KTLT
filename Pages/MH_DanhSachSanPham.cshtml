@@ -1,0 +1,27 @@
+﻿@page
+@model KTLT.Pages.MH_DanhSachSanPhamModel
+@using KTLT.Entities
+@{
+}
+
+<form method="POST">
+    <label for="a">Nhập từ khóa</label><br>
+    <input type="text" name="tukhoa" value=><br>
+    <input type="submit" value="Tìm Kiếm">
+</form>
+
+<table>
+    <tr>
+        <th>Mã Sản Phẩm</th>
+        <th>Tên Sản Phẩm</th>
+        <th>Giá</th>
+    </tr>
+    @foreach(SANPHAM sp in Model.danhSachSP)
+     {
+        <tr>
+            <td>@sp.maSanPham</td>
+            <td>@sp.tenSanPham</td>
+            <td>@sp.giaSanPham</td>
+        </tr>
+     }
+</table>
