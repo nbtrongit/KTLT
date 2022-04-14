@@ -34,5 +34,55 @@ namespace KTLT.Services
             }
             return kq;
         }
+        public static SANPHAM? DocSanPham(string id)
+        {
+            if (string.IsNullOrEmpty(id))
+            {
+                return null;
+            }
+            List<SANPHAM> dssp = LuuTruSanPham.Doc();
+            foreach (SANPHAM sp in dssp)
+            {
+                if (sp.maSanPham == id)
+                {
+                    return sp;
+                }
+            }
+            return null;
+        }
+        public static bool SuaSanPham(string id, string tensp, int giasp)
+        {
+            if (string.IsNullOrWhiteSpace(tensp) || string.IsNullOrWhiteSpace(id) || giasp <= 0)
+            {
+                return false;
+            }
+
+            SANPHAM? sp = DocSanPham(id);
+            if (sp != null)
+            {
+                SANPHAM spmoi;
+                spmoi.maSanPham = id;
+                spmoi.tenSanPham = tensp;
+                spmoi.giaSanPham = giasp;
+                return LuuTruSanPham.SuaSanPham(spmoi);
+            }
+            return false;
+            //nguyên phần này nên tách xuống data layer
+            /*List<SANPHAM> dssp = LuuTruSanPham.Doc();
+            for (int i = 0; i < dssp.Count; i++)
+            {
+                if (dssp[i].maSanPham == id)
+                {
+                    SANPHAM sp;
+                    sp.maSanPham = id;
+                    sp.tenSanPham = tensp;
+                    sp.giaSanPham = giasp;
+                    dssp[i] = sp;
+                    LuuTruSanPham.LuuDanhSachSP(dssp);
+                    return true;
+                }
+            }
+            return false;*/
+        }
     }
 }

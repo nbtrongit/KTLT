@@ -33,5 +33,19 @@ namespace KTLT.DAL
             writer.Close();
             return true;
         }
+        public static bool SuaSanPham(SANPHAM sp)
+        {
+            List<SANPHAM> dssp = LuuTruSanPham.Doc();
+            for (int i = 0; i < dssp.Count; i++)
+            {
+                if (dssp[i].maSanPham == sp.maSanPham)
+                {
+                    dssp[i] = sp;
+                    LuuTruSanPham.LuuDanhSachSP(dssp);
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }

@@ -1,0 +1,15 @@
+﻿@page
+@model KTLT.Pages.MH_SuaSanPhamModel
+@using KTLT.Services
+@if (Model.coSP)
+{
+    <form method="POST">
+        <label for="a">Nhập tên sản phẩm</label><br>
+        <input type="text" name="tensp" value="@Model.SanPham.tenSanPham"><br>
+        <label for="a">Nhập giá sản phẩm</label><br>
+        <input type="text" name="giasp" value="@Model.SanPham.giaSanPham"><br>
+        <input type="submit" value="Sửa">
+    </form>
+}
+
+@Model.Chuoi
