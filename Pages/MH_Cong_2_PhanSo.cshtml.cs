@@ -24,10 +24,6 @@ namespace KTLT.Pages
         public int Mau2 { get; set; }
         public void OnGet()
         {
-            Tu1 = 1;
-            Mau1 = 2;
-            Tu2 = 3;
-            Mau2 = 4;
             kq = string.Empty;
         }
         public void OnPost()

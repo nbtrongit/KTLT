@@ -84,5 +84,18 @@ namespace KTLT.Services
             }
             return false;*/
         }
+        public static bool XoaSanPham(string id)
+        {
+            if (string.IsNullOrWhiteSpace(id))
+            {
+                return false;
+            }
+            SANPHAM? sp = DocSanPham(id);
+            if (sp != null)
+            {
+                return LuuTruSanPham.XoaSanPham(id);
+            }
+            return false;
+        }
     }
 }

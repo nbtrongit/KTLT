@@ -41,7 +41,21 @@ namespace KTLT.DAL
                 if (dssp[i].maSanPham == sp.maSanPham)
                 {
                     dssp[i] = sp;
-                    LuuTruSanPham.LuuDanhSachSP(dssp);
+                    LuuDanhSachSP(dssp);
+                    return true;
+                }
+            }
+            return false;
+        }
+        public static bool XoaSanPham(string id)
+        {
+            List<SANPHAM> dssp = LuuTruSanPham.Doc();
+            for (int i = 0; i < dssp.Count; i++)
+            {
+                if (dssp[i].maSanPham == id)
+                {
+                    dssp.RemoveAt(i);
+                    LuuDanhSachSP(dssp);
                     return true;
                 }
             }

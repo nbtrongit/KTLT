@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http;
+@{ 
+    string user = Context.Session.GetString("key");
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -43,6 +47,20 @@
                         </li>
                     </ul>
                 </div>
+                @if (string.IsNullOrWhiteSpace(user))
+            {
+            <div>
+                <a class="nav-link text-dark" href="/MH_DangNhap">Login</a>
+                <a class="nav-link text-dark" href="/MH_DangKy">Register</a>
+            </div>
+            }
+            else
+            {
+            <div>
+                <p>Chào mừng @user</p>
+                <a class="nav-link text-dark" href="/MH_DangXuat">Logout</a>
+            </div>
+            }
             </div>
         </nav>
     </header>

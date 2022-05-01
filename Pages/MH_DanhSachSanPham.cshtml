@@ -17,16 +17,22 @@
         <th>Giá</th>
         <th></th>
     </tr>
-    @foreach(SANPHAM sp in Model.danhSachSP)
-     {
+    @foreach (SANPHAM sp in Model.danhSachSP)
+    {
         <tr>
             <td>@sp.maSanPham</td>
             <td>@sp.tenSanPham</td>
             <td>@sp.giaSanPham</td>
             <td>
-                <a href="">Xóa</a>
+                <a href="/MH_XoaSanPham?id=@sp.maSanPham">Xóa</a>
                 <a href="/MH_SuaSanPham?id=@sp.maSanPham">Sửa</a>
             </td>
         </tr>
-     }
+    }
 </table>
+<select>
+    @foreach (SANPHAM sp in Model.danhSachSP)
+    {
+        <option>@sp.tenSanPham</option>
+    }
+</select>

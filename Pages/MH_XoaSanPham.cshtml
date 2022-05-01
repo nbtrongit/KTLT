@@ -1,0 +1,12 @@
+﻿@page
+@model KTLT.Pages.MH_XoaSanPhamModel
+@using KTLT.Services
+@if (Model.coSP)
+{
+    <form method="POST">
+        <div>Có muốn xóa sản phẩm @Model.SanPham.tenSanPham</div>
+        <input type="submit" value="Xóa">
+    </form>
+}
+
+@Model.Chuoi
